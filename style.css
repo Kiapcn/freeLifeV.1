@@ -1,3 +1,16 @@
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: center; /* Centre le contenu horizontalement */
+        text-align: center; /* Centre le texte */
+    }
+
+    .tagline {
+        margin-top: 10px; /* Ajoute un espace entre le logo et la phrase */
+    }
+}
+
+
 /* Reset */
 body, h1, p, ul, li, a {
     margin: 0;
@@ -7,9 +20,10 @@ body, h1, p, ul, li, a {
     text-decoration: none;
 }
 
+/* Corps de la page */
 body {
-    background-color: #ffffff;
-    color: #333333;
+    background-color: #6a686857; /* Fond gris clair */
+    color: #d8be13; /* Texte en or */
 }
 
 /* Bloc supérieur (logo + phrase d'accroche + onglets) */
@@ -19,7 +33,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #ffffff;
+    background-color: #000000; /* Fond noir pour le header */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre discrète */
     display: grid;
     grid-template-rows: auto auto; /* Ajuste automatiquement la hauteur */
@@ -46,7 +60,7 @@ body {
 .tagline {
     flex: 1; /* Prend l'espace restant */
     text-align: center;
-    color: #d8be13;
+    color: #d8be13; /* Texte en or */
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -59,15 +73,15 @@ body {
     border-top: 1px solid #d8be13; /* Séparation avec la top-bar */
 }
 
-/* Navigation */
 .nav {
     display: flex;
     gap: 20px;
 }
 
 .nav-link {
-    color: #333333;
-    background-color: #d8be13;
+    color: #000000;
+ /* Texte blanc sur les boutons */
+    background-color: #d8be13; /* Fond or */
     padding: 8px 15px;
     border-radius: 25px;
     transition: background-color 0.3s, transform 0.2s;
@@ -82,20 +96,20 @@ body {
 /* Contenu principal */
 main {
     padding: 20px;
-    margin-top: calc(80px + 10px + 40px); /* Hauteur dynamique */
+    margin-top: calc(80px + 10px + 40px); /* S'assure que le contenu commence sous la top-bar */
     text-align: center;
+    color: #d8be13; /* Texte en or */
 }
 
-/* Titres et paragraphes */
 h1 {
-    color: #d8be13;
+    color: black; /* Titre en or */
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
 p {
     font-size: 1.2rem;
-    color: #555555;
+    color: black; /* Paragraphe en or */
 }
 
 /* Pied de page */
@@ -103,6 +117,7 @@ footer {
     text-align: center;
     margin-top: 40px;
     padding: 10px;
-    background-color: #f9f9f9;
-    color: #666666;
+    background-color: #ffffff;
+    background-color: #e8d507;
+; /* Texte en or */
 }
