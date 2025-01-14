@@ -20,6 +20,7 @@ body {
 
 .logo {
     height: 80px;
+    animation: rotateLogo 7s linear infinite;
 }
 
 .tagline {
@@ -37,9 +38,9 @@ body {
 .nav {
     display: flex;
     gap: 15px;
-    list-style: none; /* Supprime les points */
-    padding: 0; /* Supprime les marges internes */
-    margin: 0; /* Supprime les marges externes */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-link {
@@ -47,8 +48,8 @@ body {
     background-color: #d8be13;
     padding: 8px 15px;
     border-radius: 20px;
+    text-decoration: none;
     transition: transform 0.3s, background-color 0.3s;
-    text-decoration: none; /* Supprime le soulignement des liens */
 }
 
 .nav-link:hover {
@@ -65,316 +66,6 @@ main {
     display: none;
 }
 
-#countdown, #random-message {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    color: #d8be13;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 20px auto;
-    width: 300px;
-}
-
-input, button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #d8be13;
-    color: #000;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #b89f0c;
-}
-
-footer {
-    background-color: #000;
-    color: #d8be13;
-    text-align: center;
-    padding: 10px;
-}
-.product {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.product img {
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-    border: 2px solid #d8be13;
-    border-radius: 10px;
-}
-
-.product-details {
-    flex: 1;
-}
-
-.product-details h2 {
-    color: #000000;
-    margin-bottom: 10px;
-}
-
-.product-details p {
-    margin-bottom: 15px;
-    color: #000000;
-}
-
-.add-to-cart {
-    padding: 10px 20px;
-    background-color: #d8be13;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.add-to-cart:hover {
-    background-color: #b89f0c;
-}
-
-#cart-items {
-    margin-top: 20px;
-}
-
-#cart-items p {
-    background-color: #f5f5f5;
-    padding: 10px;
-    border: 1px solid #d8be13;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    color: #000000;
-}
-#cgv-content {
-    color: #000000; /* Texte en noir */
-    text-align: left; /* Alignement à gauche */
-    line-height: 1.6; /* Espacement entre les lignes */
-    margin: 20px; /* Ajoute un espace autour de l'élément */
-    font-size: 1rem; /* Taille de la police */
-}
-/* Bloc de présentation */
-#presentation {
-    text-align: center;
-    margin: 40px auto;
-    max-width: 800px;
-    color: #000000;
-}
-
-#presentation h1 {
-    color: #d8be13;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#presentation p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Bloc équipe */
-#team {
-    margin: 50px auto;
-    text-align: center;
-}
-
-#team h2 {
-    color: #d8be13;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.team-member {
-    text-align: center;
-}
-
-.circle {
-    width: 100px;
-    height: 100px;
-    border: 2px solid #d8be13;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 10px;
-}
-
-.circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.team-member p {
-    font-size: 1rem;
-    color: #000000;
-}
-/* Style responsive pour les onglets */
-@media (max-width: 768px) {
-    .navbar {
-        display: flex;
-        flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
-        justify-content: center;
-    }
-
-    .nav-link {
-        font-size: 0.9rem; /* Réduit la taille de la police */
-        padding: 5px 10px; /* Réduit les marges internes */
-    }
-
-    .nav-item {
-        margin: 5px; /* Ajoute un espace entre les éléments */
-    }
-}
-#scan-button {
-    position: absolute; /* Position absolue pour placer au centre */
-    top: 50%; /* Centre verticalement */
-    left: 50%; /* Centre horizontalement */
-    transform: translate(-50%, -50%); /* Ajuste le point de référence */
-    z-index: 1000; /* S'assure qu'il est au-dessus de la caméra */
-    padding: 10px 20px; /* Taille du bouton */
-    font-size: 1rem; /* Taille du texte */
-    background-color: #d8be13; /* Couleur de fond */
-    color: #000; /* Couleur du texte */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-#scan-button:hover {
-    background-color: #b89f0c;
-}
-/* Styles pour les écrans de petite taille */
-@media (max-width: 768px) {
-    .nav {
-        display: flex;
-        flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
-        justify-content: center; /* Centre les éléments */
-        gap: 5px; /* Espacement entre les onglets */
-    }
-
-    .nav-link {
-        font-size: 0.8rem; /* Réduit la taille du texte */
-        padding: 5px 10px; /* Réduit l'espace intérieur */
-        white-space: nowrap; /* Empêche les sauts de ligne */
-    }
-
-    .cart-icon {
-        font-size: 1.2rem; /* Ajuste la taille de l'icône Panier */
-    }
-}
-/* Animation de rotation du logo */
-@keyframes rotateLogo {
-    from {
-        transform: rotate(0deg); /* Début à 0° */
-    }
-    to {
-        transform: rotate(360deg); /* Fin à 360° */
-    }
-}
-
-/* Appliquer l'animation à toutes les pages */
-.logo {
-    animation: rotateLogo 7s linear infinite; /* 1 rotation en 7 secondes */
-    height: 80px; /* Ajustez si nécessaire */
-    margin: 0 auto; /* Centré horizontalement */
-    display: block; /* Assure que le logo est un bloc */
-}
-/* Réduction de la taille de la caméra sur mobile */
-@media (max-width: 768px) {
-    .camera-container {
-        width: 100%; /* La caméra occupe la largeur de l'écran */
-        height: auto; /* Ajuste la hauteur automatiquement */
-        max-height: 300px; /* Limite la hauteur pour plus de lisibilité */
-        position: relative; /* Permet de positionner le bouton au centre */
-        margin: 10px auto; /* Centré horizontalement */
-    }
-
-    #camera-feed {
-        width: 100%;
-        height: auto;
-        object-fit: cover; /* Remplit la caméra */
-    }
-
-    #scan-button {
-        position: absolute; /* Place le bouton au centre de la caméra */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10; /* Affiche le bouton au-dessus de la caméra */
-        background-color: #d8be13; /* Bouton visible sur fond noir */
-        color: #000;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-}
-/* Style de la caméra sur mobile */
-@media (max-width: 768px) {
-    .camera-container {
-        width: 100%;
-        max-height: 300px; /* Limite la hauteur */
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden; /* Empêche tout débordement */
-    }
-
-    #camera-feed {
-        width: 100%; /* Largeur 100% de l'écran */
-        height: auto;
-        object-fit: cover; /* Ajuste le flux vidéo */
-    }
-
-    #scan-button {
-        position: absolute;
-        top: 50%; /* Position verticale au centre */
-        left: 50%; /* Position horizontale au centre */
-        transform: translate(-50%, -50%);
-        z-index: 10; /* Au-dessus de la vidéo */
-        background-color: #d8be13;
-        color: #000;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        display: block; /* Assure que le bouton est visible */
-    }
-}
-
-/* Effet de flash de la caméra */
-.flash-effect {
-    animation: flash 0.1s infinite alternate;
-}
-
-@keyframes flash {
-    0% {
-        background-color: white;
-    }
-    100% {
-        background-color: black;
-    }
-}
-/* Caméra et Scan */
 .camera-container {
     position: relative;
     background-color: black;
@@ -390,6 +81,26 @@ footer {
     object-fit: cover;
 }
 
+#scan-effect {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    top: 0;
+    animation: scan-line 7s infinite ease-in-out;
+    display: none;
+}
+
+#scan-effect.active {
+    display: block;
+}
+
+@keyframes scan-line {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
 #scan-button {
     position: absolute;
     top: 50%;
@@ -402,206 +113,145 @@ footer {
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 10;
 }
 
 #scan-button:hover {
     background-color: #b89f0c;
 }
 
-#countdown {
-    font-size: 2rem;
+footer {
+    background-color: #000;
     color: #d8be13;
     text-align: center;
-    margin-top: 10px;
-}
-
-.hidden {
-    display: none;
-}
-
-.flash-effect {
-    animation: flash 0.1s infinite alternate;
-}
-
-@keyframes flash {
-    0% {
-        background-color: white;
-    }
-    100% {
-        background-color: black;
-    }
-}
-
-/* Formulaire */
-form {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input, button {
     padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-button {
-    background-color: #d8be13;
-    color: #000;
-    cursor: pointer;
+@keyframes rotateLogo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+#cgv-content {
+    color: #000; /* Texte noir */
+    text-align: left; /* Alignement à droite */
+    margin: 20px; /* Espace autour */
+    line-height: 1.5; /* Espacement entre les lignes */
+}
+/* Style pour les membres de l'équipe */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive */
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #b89f0c;
-}
-/* Effet de flash de la caméra */
-.flash-effect {
-    animation: flash 0.1s infinite alternate;
+.team-member {
+    text-align: center;
 }
 
-@keyframes flash {
-    0% {
-        background-color: white;
-    }
-    100% {
-        background-color: black;
-    }
+.circle {
+    width: 100px; /* Diamètre du cercle */
+    height: 100px; /* Diamètre du cercle */
+    border: 3px solid #d8be13; /* Bordure dorée */
+    border-radius: 50%; /* Rend l'image ronde */
+    overflow: hidden; /* Coupe l'image au bord du cercle */
+    margin: 0 auto 10px;
 }
 
-/* Ligne rouge animée pour le scan */
-#scan-effect {
-    position: absolute;
+.circle img {
     width: 100%;
-    height: 5px;
-    background-color: red;
-    top: 0;
-    left: 0;
-    transform: translateY(0);
-    animation: scan-line 7s ease-in-out infinite;
-    z-index: 10;
-    display: none;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image remplit le cercle sans déformation */
 }
-
-#scan-effect.active {
-    display: block;
-}
-
-@keyframes scan-line {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(100%);
-    }
-}
-
-/* Caméra sur mobile */
-@media (max-width: 768px) {
-    .camera-container {
-        width: 100%;
-        height: auto;
-        max-height: 300px; /* Limite la hauteur */
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden; /* Empêche les débordements */
-        background-color: black;
-    }
-
-    #camera-feed {
-        width: 100%;
-        height: auto; /* Ajuste automatiquement la hauteur */
-        object-fit: contain; /* S'assure que l'image reste visible sans déformation */
-    }
-
-    #scan-button {
-        position: absolute;
-        top: 50%; /* Centré verticalement */
-        left: 50%; /* Centré horizontalement */
-        transform: translate(-50%, -50%);
-        z-index: 10; /* Toujours au-dessus de la caméra */
-        background-color: #d8be13;
-        color: #000;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        display: block;
-    }
-}
-
-/* Spécifiques à la page de scan */
-body.scan-page {
-    background-color: #f5f5f5; /* Couleur spécifique à cette page */
-}
-
-/* Camera Container */
-body.scan-page .camera-container {
-    position: relative;
-    width: 100%;
-    max-height: 300px;
-    background-color: black;
+/* Style pour la boutique */
+#products {
     margin: 20px auto;
-    overflow: hidden;
+    max-width: 1200px;
+    text-align: center;
 }
 
-/* Effet de la ligne rouge */
-body.scan-page #scan-effect {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    background-color: red;
-    top: 0;
-    animation: scan-line 7s infinite ease-in-out;
-    z-index: 10;
-    display: none;
+#products h1 {
+    font-size: 2rem;
+    color: #d8be13;
+    margin-bottom: 30px;
 }
 
-body.scan-page #scan-effect.active {
-    display: block;
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border: 2px solid #d8be13;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f5f5f5;
 }
 
-@keyframes scan-line {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.product.reverse {
+    flex-direction: row-reverse; /* Inverse l'ordre pour le produit en quinconce */
 }
 
-/* Bouton Scan */
-body.scan-page #scan-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+.product-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #d8be13;
+}
+
+.product-details {
+    flex: 1;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.product-details h2 {
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.price {
+    font-weight: bold;
+    color: #000;
+}
+
+.add-to-cart {
     padding: 10px 20px;
-    font-size: 1rem;
     background-color: #d8be13;
     color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-body.scan-page #scan-button:hover {
+.add-to-cart:hover {
     background-color: #b89f0c;
 }
 
-/* Compteur et messages */
-body.scan-page #countdown,
-body.scan-page #random-message {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    color: #d8be13;
+/* Responsive */
+@media (max-width: 768px) {
+    .product {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product.reverse {
+        flex-direction: column;
+    }
+
+    .product-image img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .product-details {
+        padding: 0;
+    }
 }

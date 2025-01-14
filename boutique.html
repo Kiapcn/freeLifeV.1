@@ -3,57 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique - Scan Médical</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Boutique - FreeLife</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="header">
         <div class="top-bar">
             <a href="index.html">
-                <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+                <img src="logo1-removebg-preview.png" alt="Logo FreeLife" class="logo">
             </a>
-            <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes !"</p>
+            <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes avec FreeLife !"</p>
         </div>
         <nav class="navbar">
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link" href="scan.html">Scan</a></li>
                 <li class="nav-item"><a class="nav-link active" href="boutique.html">Boutique</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
                 <li class="nav-item"><a class="nav-link" href="panier.html">🛒 Panier</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section>
+        <section id="products">
             <h1>Notre Boutique</h1>
+            <!-- Produit 1 -->
             <div class="product">
-                <img src="product1.jpg" alt="Produit 1" class="product-image">
+                <div class="product-image">
+                    <img src="produit1.jpg" alt="Produit 1">
+                </div>
                 <div class="product-details">
                     <h2>Produit 1</h2>
-                    <p>Description du produit 1. C'est un produit incroyable qui change votre vie.</p>
-                    <button class="add-to-cart" data-product="Produit 1">Ajouter au panier</button>
+                    <p>Description du produit 1. Un gadget révolutionnaire pour améliorer votre quotidien.</p>
+                    <p class="price">Prix : 29.99€</p>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
-            <div class="product">
-                <img src="product2.jpg" alt="Produit 2" class="product-image">
+            <!-- Produit 2 -->
+            <div class="product reverse">
                 <div class="product-details">
                     <h2>Produit 2</h2>
-                    <p>Description du produit 2. Ce produit est indispensable à votre quotidien.</p>
-                    <button class="add-to-cart" data-product="Produit 2">Ajouter au panier</button>
+                    <p>Description du produit 2. Une innovation incontournable pour tous.</p>
+                    <p class="price">Prix : 49.99€</p>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+                <div class="product-image">
+                    <img src="produit2.jpg" alt="Produit 2">
                 </div>
             </div>
+            <!-- Produit 3 -->
             <div class="product">
-                <img src="product3.jpg" alt="Produit 3" class="product-image">
+                <div class="product-image">
+                    <img src="produit3.jpg" alt="Produit 3">
+                </div>
                 <div class="product-details">
                     <h2>Produit 3</h2>
-                    <p>Description du produit 3. Découvrez une révolution avec ce produit.</p>
-                    <button class="add-to-cart" data-product="Produit 3">Ajouter au panier</button>
+                    <p>Description du produit 3. Découvrez les dernières avancées technologiques.</p>
+                    <p class="price">Prix : 19.99€</p>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
+        <p>&copy; 2025 FreeLife - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

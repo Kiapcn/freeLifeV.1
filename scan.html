@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scan - FreeLife</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="scan-page">
@@ -20,7 +19,6 @@
                 <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link active" href="scan.html">Scan</a></li>
                 <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
                 <li class="nav-item"><a class="nav-link" href="panier.html">🛒 Panier</a></li>
             </ul>
@@ -31,11 +29,9 @@
             <h1>Scanner votre diagnostic</h1>
             <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
-                <div id="scan-effect"></div> <!-- Ligne rouge animée -->
-                <div id="camera-wrapper">
-                    <video id="camera-feed" autoplay></video>
-                    <button id="scan-button" class="btn-scan hidden">Scan</button>
-                </div>
+                <div id="scan-effect"></div>
+                <video id="camera-feed" autoplay></video>
+                <button id="scan-button" class="btn-scan hidden">Scan</button>
                 <p id="countdown" class="hidden">7</p>
                 <p id="random-message" class="hidden"></p>
             </div>
@@ -50,7 +46,7 @@
             </form>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2025 FreeLife - Tous droits réservés.</p>
     </footer>
     <script src="script.js"></script>
