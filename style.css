@@ -142,8 +142,9 @@ footer {
     width: 100%; /* S'étend sur toute la largeur */
     font-size: 1rem; /* Taille du texte */
 }
-p {
-    text-align: left;
-    color: #000000;
-    line-height: 1.6;
+#cgv-content p {
+    text-align: left; /* Aligne le texte à gauche */
+    color: #000000; /* Change la couleur du texte en noir */
+    line-height: 1.6; /* Espacement entre les lignes */
+    margin-bottom: 15px; /* Ajoute un espace entre les paragraphes */
 }
