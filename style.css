@@ -87,10 +87,11 @@ body {
 /* Contenu principal */
 main {
     padding: 20px;
-    margin-top: calc(80px + 10px + 40px); /* S'assure que le contenu commence sous la top-bar */
+    margin-top: calc(80px + 10px + 50px); /* Ajuste pour inclure la hauteur totale du header */
     text-align: center;
     color: #d8be13; /* Texte en or */
 }
+
 
 h1 {
     color: #d8be13; /* Titre en or */
