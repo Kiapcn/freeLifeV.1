@@ -532,3 +532,73 @@ button:hover {
         display: block; /* Assure que le bouton est visible */
     }
 }
+/* Spécifiques à la page de scan */
+body.scan-page {
+    background-color: #f5f5f5; /* Couleur spécifique à cette page */
+}
+
+/* Camera Container */
+body.scan-page .camera-container {
+    position: relative;
+    width: 100%;
+    max-height: 300px;
+    background-color: black;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+/* Effet de la ligne rouge */
+body.scan-page #scan-effect {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    top: 0;
+    animation: scan-line 7s infinite ease-in-out;
+    z-index: 10;
+    display: none;
+}
+
+body.scan-page #scan-effect.active {
+    display: block;
+}
+
+@keyframes scan-line {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Bouton Scan */
+body.scan-page #scan-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #d8be13;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+body.scan-page #scan-button:hover {
+    background-color: #b89f0c;
+}
+
+/* Compteur et messages */
+body.scan-page #countdown,
+body.scan-page #random-message {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #d8be13;
+}
