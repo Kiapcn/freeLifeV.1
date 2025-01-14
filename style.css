@@ -6,17 +6,10 @@
     }
 
     .tagline {
-        margin-top: 10px; /* Ajoute un espace entre le logo et la phrase */
-    }
-}
-@media (max-width: 768px) {
-    .tagline {
         text-align: center; /* Centre bien le texte */
         max-width: 100%; /* Utilise tout l'espace disponible */
         margin-top: 10px; /* Ajoute un espace entre le logo et la phrase */
     }
-}
-
 
 /* Reset */
 body, h1, p, ul, li, a {
