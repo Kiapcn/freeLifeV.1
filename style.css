@@ -1,76 +1,62 @@
-/* Reset de base */
+/* Reset */
 body, h1, p, ul, li, a {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     list-style: none;
     text-decoration: none;
-    font-family: Arial, sans-serif;
 }
 
 body {
     background-color: #ffffff;
     color: #333333;
-    font-size: 16px;
 }
 
-/* Header & Navigation */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Barre de navigation */
+.navbar {
+    border-bottom: 2px solid #d8be13;
     z-index: 1000;
 }
 
-.navigation {
+.nav {
     display: flex;
     justify-content: center;
-    padding: 10px;
-    background-color: #ffffff;
+    gap: 20px;
 }
 
-.navigation li {
-    margin: 0 15px;
-}
-
-.navigation a {
-    color: #333333;
-    background-color: #FFD700;
-    padding: 10px 20px;
+.nav-link {
+    color: #333333 !important;
+    background-color: #d8be13;
+    padding: 8px 15px;
     border-radius: 25px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.navigation a:hover {
-    background-color: #FFA500;
+.nav-link:hover {
+    background-color: #b89f0c;
+    color: #ffffff !important;
     transform: scale(1.05);
 }
 
-/* Main Section */
-main {
-    margin-top: 80px;
-    padding: 20px;
-    text-align: center;
-}
-
+/* Titres et paragraphes */
 h1 {
-    color: #FFD700;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    color: #d8be13;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: #555555;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #FFD700;
-    color: #ffffff;
+/* Bloc noir centré */
+.black-box {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
