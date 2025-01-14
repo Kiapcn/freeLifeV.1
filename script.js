@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraFeed.srcObject = stream;
             cameraFeed.play();
             cameraContainer.classList.remove("hidden");
-            scanButton.style.display = "block"; // Affiche le bouton Scan
+            scanButton.classList.remove("hidden");
         } catch (error) {
             alert("Impossible d'accéder à la caméra. Veuillez vérifier les autorisations.");
         }
@@ -39,10 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Gestion du scan
     scanButton.addEventListener("click", () => {
-        audio.play(); // Joue le son pendant le scan
-        scanButton.style.display = "none"; // Cache le bouton Scan
+        audio.play();
+        scanButton.classList.add("hidden");
         countdown.classList.remove("hidden");
-        let timeLeft = 7; // Temps de compte à rebours
+        randomMessage.classList.add("hidden");
+        let timeLeft = 7;
         countdown.textContent = timeLeft;
 
         // Effet de flash rapide
@@ -50,32 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraContainer.style.backgroundColor =
                 cameraContainer.style.backgroundColor === "white" ? "black" : "white";
         }, 100);
-// Effet de flash pour le scan
-scanButton.addEventListener("click", () => {
-    scanButton.disabled = true;
-    countdown.classList.remove("hidden");
-    let timeLeft = 7;
-    countdown.textContent = timeLeft;
-
-    // Effet de flash pour simuler l'effet de diagnostic
-    const flashInterval = setInterval(() => {
-        cameraContainer.style.backgroundColor =
-            cameraContainer.style.backgroundColor === "white" ? "black" : "white";
-    }, 100);
-
-    const countdownInterval = setInterval(() => {
-        timeLeft -= 1;
-        countdown.textContent = timeLeft;
-
-        if (timeLeft === 0) {
-            clearInterval(countdownInterval);
-            clearInterval(flashInterval);
-            cameraContainer.style.backgroundColor = "black"; // Réinitialise le fond noir
-            countdown.classList.add("hidden");
-            scanButton.disabled = false; // Réactive le bouton Scan après 7 secondes
-        }
-    }, 1000);
-});
 
         // Compte à rebours pour le scan
         const countdownInterval = setInterval(() => {
@@ -85,7 +60,7 @@ scanButton.addEventListener("click", () => {
             if (timeLeft === 0) {
                 clearInterval(countdownInterval);
                 clearInterval(flashInterval);
-                cameraContainer.style.backgroundColor = "black"; // Réinitialise le fond
+                cameraContainer.style.backgroundColor = "black";
                 countdown.classList.add("hidden");
 
                 // Affiche un message aléatoire
@@ -98,7 +73,7 @@ scanButton.addEventListener("click", () => {
 
                 // Réaffiche le bouton Scan après 10 secondes
                 setTimeout(() => {
-                    scanButton.style.display = "block";
+                    scanButton.classList.remove("hidden");
                 }, 10000);
             }
         }, 1000);
@@ -109,6 +84,6 @@ scanButton.addEventListener("click", () => {
     profileForm.addEventListener("submit", (e) => {
         e.preventDefault();
         alert("Vous êtes bien inscrit à notre liste d’attente. Merci !");
-        formSection.classList.add("hidden"); // Cache le formulaire après validation
+        formSection.classList.add("hidden");
     });
 });

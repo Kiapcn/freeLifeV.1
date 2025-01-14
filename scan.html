@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scan - Scan Médical</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scan - FreeLife</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
 <body>
     <header class="header">
         <div class="top-bar">
             <a href="index.html">
-                <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+                <img src="logo1-removebg-preview.png" alt="Logo FreeLife" class="logo">
             </a>
-            <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes !"</p>
+            <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes avec FreeLife !"</p>
         </div>
         <nav class="navbar">
             <ul class="nav">
@@ -22,7 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
-                <li class="nav-item"><a class="nav-link active" href="panier.html">🛒 Panier</a></li>
+                <li class="nav-item"><a class="nav-link" href="panier.html">🛒 Panier</a></li>
             </ul>
         </nav>
     </header>
@@ -31,8 +33,10 @@
             <h1>Scanner votre diagnostic</h1>
             <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
-                <video id="camera-feed" autoplay></video>
-                <button id="scan-button" class="btn-scan hidden">Scan</button>
+                <div id="camera-wrapper">
+                    <video id="camera-feed" autoplay></video>
+                    <button id="scan-button" class="btn-scan hidden">Scan</button>
+                </div>
                 <p id="countdown" class="hidden">7</p>
                 <p id="random-message" class="hidden"></p>
             </div>
@@ -48,7 +52,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Scan Médical - Tous droits réservés.</p>
+        <p>&copy; 2025 FreeLife - Tous droits réservés.</p>
     </footer>
     <script src="script.js"></script>
 </body>
