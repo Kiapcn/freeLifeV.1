@@ -28,21 +28,24 @@
     <main>
         <section>
             <h1>Scanner votre diagnostic</h1>
-            <p>Appuyez sur le bouton ci-dessous pour activer la caméra.</p>
             <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
                 <video id="camera-feed" autoplay></video>
                 <button id="scan-button" class="btn-scan hidden">Scan</button>
                 <p id="countdown" class="hidden">7</p>
+                <p id="random-message" class="hidden"></p>
             </div>
         </section>
+        <section id="form-section" class="hidden">
+            <h2>Créer votre profil</h2>
+            <form id="profile-form">
+                <input type="text" name="name" placeholder="Nom complet" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="text" name="phone" placeholder="Numéro de téléphone" required>
+                <button type="submit" class="btn-scan">Envoyer</button>
+            </form>
+        </section>
     </main>
-    <div id="email-popup" class="popup hidden">
-        <p>Entrez votre adresse e-mail pour recevoir vos résultats :</p>
-        <input type="email" id="email-input" placeholder="Votre adresse e-mail" />
-        <button id="send-email-button">Envoyer</button>
-        <p id="email-message" class="hidden"></p>
-    </div>
     <footer>
         <p>&copy; 2025 Scan Médical - Tous droits réservés.</p>
     </footer>
