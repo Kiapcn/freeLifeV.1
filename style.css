@@ -143,3 +143,78 @@ footer {
         font-size: 1rem; /* Réduit la taille des paragraphes */
     }
 }
+/* Bouton Go Scan */
+.btn-scan {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #d8be13;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-scan:hover {
+    background-color: #b89f0c;
+    transform: scale(1.05);
+}
+
+/* Zone caméra */
+.camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#camera-feed {
+    width: 100%;
+    max-width: 600px;
+    border: 5px solid #d8be13;
+    border-radius: 10px;
+}
+
+#scan-instructions {
+    color: #d8be13;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Pop-up pour l'e-mail */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    border: 2px solid #d8be13;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.popup input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.popup button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #d8be13;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

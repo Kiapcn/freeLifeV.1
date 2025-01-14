@@ -3,41 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Scan Médical</title>
-    <!-- Intégration de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Scan - Scan Médical</title>
+    <!-- Lien vers les polices et CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
+    <!-- Header (logo, phrase et navigation) -->
+    <header class="header">
         <div class="top-bar">
-            <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+            <a href="index.html">
+                <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+            </a>
+            <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes !"</p>
         </div>
-        <nav class="navbar fixed-top navbar-light bg-white shadow-sm">
-            <div class="container justify-content-center">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="scan.html">Scan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
-                </ul>
-            </div>
+        <nav class="navbar">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link active" href="scan.html">Scan</a></li>
+                <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
+            </ul>
         </nav>
     </header>
-    <main class="container mt-5 pt-5">
+    <!-- Contenu principal -->
+    <main>
         <section>
-            <h1>Bienvenue sur Scan Médical</h1>
-            <p>Une innovation révolutionnaire pour un diagnostic rapide et ludique.</p>
-            <!-- Bloc noir centré -->
-            <div class="black-box"></div>
+            <h1>Scanner votre diagnostic</h1>
+            <p>Appuyez sur le bouton ci-dessous pour commencer le scan.</p>
+            <!-- Bouton Go Scan -->
+            <button id="scan-button" class="btn-scan">Go Scan</button>
+            <!-- Zone de caméra -->
+            <div id="camera-container" class="camera-container hidden">
+                <video id="camera-feed" autoplay></video>
+                <p id="scan-instructions" class="hidden">Placez votre visage au centre pour scanner.</p>
+            </div>
         </section>
     </main>
-    <footer class="bg-light text-center py-3 mt-5">
+    <!-- Pop-up pour l'adresse e-mail -->
+    <div id="email-popup" class="popup hidden">
+        <p>Entrez votre adresse e-mail pour recevoir vos résultats :</p>
+        <input type="email" id="email-input" placeholder="Votre adresse e-mail" />
+        <button id="send-email-button">Envoyer</button>
+        <p id="email-message" class="hidden"></p>
+    </div>
+    <!-- Pied de page -->
+    <footer>
         <p>&copy; 2025 Scan Médical - Tous droits réservés.</p>
     </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script JS -->
+    <script src="script.js"></script>
 </body>
 </html>
