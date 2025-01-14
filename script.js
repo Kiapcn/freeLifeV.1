@@ -164,3 +164,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.body.classList.contains("scan-page")) {
+        const cameraFeed = document.getElementById("camera-feed");
+
+        // Ajustement dynamique de la taille de la caméra
+        function adjustCameraSize() {
+            const container = document.querySelector(".camera-container");
+            const screenHeight = window.innerHeight;
+
+            // Limite la hauteur de la caméra à 50% de l'écran pour les mobiles
+            if (window.innerWidth <= 768) {
+                container.style.height = `${screenHeight * 0.5}px`;
+            } else {
+                container.style.height = `auto`; // Réinitialise pour les grands écrans
+            }
+        }
+
+        // Applique l'ajustement au chargement et lors du redimensionnement
+        adjustCameraSize();
+        window.addEventListener("resize", adjustCameraSize);
+    }
+});

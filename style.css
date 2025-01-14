@@ -500,28 +500,30 @@ button:hover {
     }
 }
 
-/* Ajustement de la caméra sur mobile */
+/* Caméra sur mobile */
 @media (max-width: 768px) {
     .camera-container {
         width: 100%;
+        height: auto;
         max-height: 300px; /* Limite la hauteur */
         position: relative;
         margin: 0 auto;
-        overflow: hidden; /* Empêche tout débordement */
+        overflow: hidden; /* Empêche les débordements */
+        background-color: black;
     }
 
     #camera-feed {
-        width: 100%; /* Largeur 100% de l'écran */
-        height: auto;
-        object-fit: cover; /* Ajuste le flux vidéo */
+        width: 100%;
+        height: auto; /* Ajuste automatiquement la hauteur */
+        object-fit: contain; /* S'assure que l'image reste visible sans déformation */
     }
 
     #scan-button {
         position: absolute;
-        top: 50%; /* Position verticale au centre */
-        left: 50%; /* Position horizontale au centre */
+        top: 50%; /* Centré verticalement */
+        left: 50%; /* Centré horizontalement */
         transform: translate(-50%, -50%);
-        z-index: 10; /* Au-dessus de la vidéo */
+        z-index: 10; /* Toujours au-dessus de la caméra */
         background-color: #d8be13;
         color: #000;
         border: none;
@@ -529,9 +531,10 @@ button:hover {
         font-size: 1rem;
         border-radius: 5px;
         cursor: pointer;
-        display: block; /* Assure que le bouton est visible */
+        display: block;
     }
 }
+
 /* Spécifiques à la page de scan */
 body.scan-page {
     background-color: #f5f5f5; /* Couleur spécifique à cette page */
