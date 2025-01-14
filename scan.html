@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scan - Scan Médical</title>
-    <!-- Lien vers les polices et CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header (logo, phrase et navigation) -->
     <header class="header">
         <div class="top-bar">
             <a href="index.html">
-                <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+                <img src="logo.png" alt="Logo Scan Médical" class="logo">
             </a>
             <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes !"</p>
         </div>
@@ -27,32 +25,27 @@
             </ul>
         </nav>
     </header>
-    <!-- Contenu principal -->
     <main>
         <section>
             <h1>Scanner votre diagnostic</h1>
-            <p>Appuyez sur le bouton ci-dessous pour commencer le scan.</p>
-            <!-- Bouton Go Scan -->
-            <button id="scan-button" class="btn-scan">Go Scan</button>
-            <!-- Zone de caméra -->
+            <p>Appuyez sur le bouton ci-dessous pour activer la caméra.</p>
+            <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
                 <video id="camera-feed" autoplay></video>
-                <p id="scan-instructions" class="hidden">Placez votre visage au centre pour scanner.</p>
+                <button id="scan-button" class="btn-scan hidden">Scan</button>
+                <p id="countdown" class="hidden">7</p>
             </div>
         </section>
     </main>
-    <!-- Pop-up pour l'adresse e-mail -->
     <div id="email-popup" class="popup hidden">
         <p>Entrez votre adresse e-mail pour recevoir vos résultats :</p>
         <input type="email" id="email-input" placeholder="Votre adresse e-mail" />
         <button id="send-email-button">Envoyer</button>
         <p id="email-message" class="hidden"></p>
     </div>
-    <!-- Pied de page -->
     <footer>
         <p>&copy; 2025 Scan Médical - Tous droits réservés.</p>
     </footer>
-    <!-- Script JS -->
     <script src="script.js"></script>
 </body>
 </html>

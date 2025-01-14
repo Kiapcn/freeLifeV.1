@@ -1,24 +1,18 @@
-// Ajout d'effets supplémentaires si nécessaire
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script chargé avec succès !");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const scanButton = document.getElementById("scan-button");
+    const startScanButton = document.getElementById("start-scan-button");
     const cameraContainer = document.getElementById("camera-container");
     const cameraFeed = document.getElementById("camera-feed");
-    const scanInstructions = document.getElementById("scan-instructions");
+    const scanButton = document.getElementById("scan-button");
+    const countdown = document.getElementById("countdown");
     const emailPopup = document.getElementById("email-popup");
     const emailInput = document.getElementById("email-input");
     const sendEmailButton = document.getElementById("send-email-button");
-    const emailMessage = document.getElementById("email-message");
 
-    // Gestion du bouton Go Scan
-    scanButton.addEventListener("click", async () => {
+    // Activer la caméra
+    startScanButton.addEventListener("click", async () => {
         cameraContainer.classList.remove("hidden");
-        scanInstructions.classList.remove("hidden");
+        scanButton.classList.remove("hidden");
 
-        // Activer la caméra
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             cameraFeed.srcObject = stream;
@@ -27,48 +21,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Animation de flash lors du scan
-    cameraFeed.addEventListener("click", () => {
-        scanInstructions.textContent = "Scannage en cours...";
-        let flashInterval = setInterval(() => {
-            cameraContainer.style.backgroundColor = cameraContainer.style.backgroundColor === "white" ? "black" : "white";
-        }, 200);
+    // Lancer le scan
+    scanButton.addEventListener("click", () => {
+        scanButton.disabled = true;
+        countdown.classList.remove("hidden");
+        let timeLeft = 7;
+        countdown.textContent = timeLeft;
 
-        // Arrêter l'animation après 5 secondes
-        setTimeout(() => {
-            clearInterval(flashInterval);
-            cameraContainer.style.backgroundColor = "black";
-            emailPopup.classList.remove("hidden");
-        }, 5000);
+        const flashInterval = setInterval(() => {
+            cameraContainer.style.backgroundColor =
+                cameraContainer.style.backgroundColor === "white" ? "black" : "white";
+        }, 100);
+
+        const audio = new Audio("router-sound.mp3");
+        audio.play();
+
+        const countdownInterval = setInterval(() => {
+            timeLeft -= 1;
+            countdown.textContent = timeLeft;
+
+            if (timeLeft === 0) {
+                clearInterval(countdownInterval);
+                clearInterval(flashInterval);
+                cameraContainer.style.backgroundColor = "black";
+                audio.pause();
+                countdown.classList.add("hidden");
+                emailPopup.classList.remove("hidden");
+                scanButton.disabled = false;
+            }
+        }, 1000);
     });
 
-    // Gestion de l'envoi de l'e-mail
+    // Envoi de l'email
     sendEmailButton.addEventListener("click", () => {
         const email = emailInput.value;
         if (email && email.includes("@")) {
-            emailMessage.textContent = "Bravo, tu as été scanné !";
-            emailMessage.classList.remove("hidden");
-
-            // Simuler l'envoi d'un e-mail
-            setTimeout(() => {
-                alert(`Un e-mail a été envoyé à : ${email}`);
-                emailPopup.classList.add("hidden");
-            }, 2000);
+            alert(`Un e-mail a été envoyé à ${email} avec un message personnalisé.`);
+            emailPopup.classList.add("hidden");
         } else {
             alert("Veuillez entrer une adresse e-mail valide.");
         }
     });
 });
-document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector(".header");
-    const main = document.querySelector("main");
-
-    const adjustMainMargin = () => {
-        const headerHeight = header.offsetHeight; // Calculer la hauteur totale du header
-        main.style.marginTop = `${headerHeight}px`; // Ajouter un espace en fonction
-    };
-
-    adjustMainMargin(); // Ajuste au chargement
-    window.addEventListener("resize", adjustMainMargin); // Ré-ajuste lors du redimensionnement
-});
-

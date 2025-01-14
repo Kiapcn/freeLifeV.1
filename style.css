@@ -13,70 +13,50 @@ body {
     color: #d8be13; /* Texte en or */
 }
 
-/* Bloc supérieur (logo + phrase d'accroche + onglets) */
+/* Header */
 .header {
-    position: sticky; /* Fixe le header */
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
+    background-color: #000000;
     z-index: 1000;
-    background-color: #000000; /* Fond noir pour le header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre discrète */
-    display: grid;
-    grid-template-rows: auto auto; /* Ajuste automatiquement la hauteur */
-    
-}
-
-/* Top-bar : centrer le logo */
-.top-bar {
-    display: flex;
-    flex-direction: column; /* Empile les éléments verticalement */
-    align-items: center; /* Centre le logo horizontalement */
-    justify-content: center; /* Centre verticalement si nécessaire */
-    padding: 10px 20px;
-    background-color: #000000; /* Fond noir */
-    text-align: center; /* Centre le texte (tagline) */
+    text-align: center;
+    padding: 10px 0;
 }
 
 .logo {
-    height: 80px; /* Taille ajustable */
-    width: auto;
+    height: 80px;
     transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
-    transform: rotate(360deg); /* Rotation au survol */
+    transform: rotate(360deg);
 }
 
 .tagline {
-    flex: 1;
-    text-align: center; /* Centre horizontalement le texte */
-    color: #d8be13; /* Texte en or */
+    color: #d8be13;
     font-size: 1.2rem;
     font-weight: bold;
-    max-width: 90%; /* Empêche que le texte dépasse la largeur disponible */
-    word-wrap: break-word; /* Force un retour à la ligne si nécessaire */
     margin-top: 10px;
 }
 
-/* Navbar : centrer les onglets */
+/* Navigation */
 .navbar {
     display: flex;
-    justify-content: center; /* Centre les onglets */
+    justify-content: center;
     padding: 10px 0;
-    border-top: 1px solid #d8be13; /* Séparation avec la top-bar */
-    background-color: #000000; /* Fond noir */
+    background-color: #000000;
 }
 
 .nav {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
 }
 
 .nav-link {
-    color: #000000; /* Texte noir */
-    background-color: #d8be13; /* Fond or */
+    color: #000000;
+    background-color: #d8be13;
     padding: 8px 15px;
     border-radius: 25px;
     transition: background-color 0.3s, transform 0.2s;
@@ -84,91 +64,18 @@ body {
 
 .nav-link:hover {
     background-color: #b89f0c;
-    color: #ffffff; /* Texte blanc au survol */
+    color: #ffffff;
     transform: scale(1.05);
 }
 
 /* Contenu principal */
 main {
     padding: 20px;
-    margin-top: calc(80px + 10px + 50px); /* Ajuste la hauteur totale */
+    margin-top: 20px;
     text-align: center;
-    color: #000000; /* Texte noir */
 }
 
-
-h1 {
-    color: #d8be13; /* Titre en or */
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.2rem;
-    color: #d8be13; /* Paragraphe en or */
-}
-
-/* Pied de page */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 10px;
-    background-color: #e8d507; /* Fond jaune */
-    color: #000000; /* Texte noir */
-}
-
-/* Responsivité pour les écrans plus petits */
-@media (max-width: 768px) {
-    .top-bar {
-        flex-direction: column; /* Empile les éléments verticalement */
-        align-items: center; /* Centre le contenu horizontalement */
-        text-align: center;
-    }
-
-    .tagline {
-        max-width: 100%; /* Utilise tout l'espace disponible */
-        margin-top: 10px; /* Ajoute un espace entre le logo et la phrase */
-    }
-
-    .nav {
-        justify-content: center; /* Centre la navigation */
-        gap: 10px; /* Réduit l'espacement entre les onglets */
-    }
-
-    .nav-link {
-        padding: 5px 10px; /* Réduit la taille des onglets */
-        font-size: 0.9rem; /* Réduit la taille du texte des onglets */
-    }
-
-    h1 {
-        font-size: 2rem; /* Réduit la taille du titre principal */
-    }
-
-    p {
-        font-size: 1rem; /* Réduit la taille des paragraphes */
-    }
-}
-/* Bouton Go Scan */
-.btn-scan {
-    display: inline-block;
-    margin: 20px auto;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #d8be13;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn-scan:hover {
-    background-color: #b89f0c;
-    transform: scale(1.05);
-}
-
-/* Zone caméra */
+/* Caméra */
 .camera-container {
     display: flex;
     flex-direction: column;
@@ -180,20 +87,13 @@ footer {
     display: none;
 }
 
-#camera-feed {
-    width: 100%;
-    max-width: 600px;
-    border: 5px solid #d8be13;
-    border-radius: 10px;
-}
-
-#scan-instructions {
+#countdown {
+    font-size: 2rem;
     color: #d8be13;
-    font-size: 1.2rem;
     margin-top: 10px;
 }
 
-/* Pop-up pour l'e-mail */
+/* Pop-up */
 .popup {
     position: fixed;
     top: 50%;
@@ -222,4 +122,14 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+footer {
+    text-align: center; /* Centre le texte */
+    margin-top: 40px; /* Espace au-dessus du footer */
+    padding: 10px; /* Espace intérieur */
+    background-color: #000000; /* Fond noir */
+    color: #d8be13; /* Texte en or */
+    position: relative; /* S'assure qu'il reste en bas du contenu */
+    width: 100%; /* S'étend sur toute la largeur */
+    font-size: 1rem; /* Taille du texte */
 }
