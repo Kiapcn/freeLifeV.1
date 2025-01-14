@@ -59,17 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
     const main = document.querySelector("main");
 
     const adjustMainMargin = () => {
-        const headerHeight = header.offsetHeight; // Hauteur totale du header
-        main.style.marginTop = `${headerHeight}px`; // Applique la marge équivalente
+        const headerHeight = header.offsetHeight; // Calculer la hauteur totale du header
+        main.style.marginTop = `${headerHeight}px`; // Ajouter un espace en fonction
     };
 
-    adjustMainMargin(); // Appel initial au chargement
-    window.addEventListener("resize", adjustMainMargin); // Recalcule lors du redimensionnement
+    adjustMainMargin(); // Ajuste au chargement
+    window.addEventListener("resize", adjustMainMargin); // Ré-ajuste lors du redimensionnement
 });
 

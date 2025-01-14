@@ -27,13 +27,15 @@ body {
     
 }
 
-/* Top-bar : logo et phrase d'accroche */
+/* Top-bar : centrer le logo */
 .top-bar {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: center; /* Centre le logo horizontalement */
+    justify-content: center; /* Centre verticalement si nécessaire */
     padding: 10px 20px;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    background-color: #000000; /* Fond noir */
+    text-align: center; /* Centre le texte (tagline) */
 }
 
 .logo {
@@ -57,12 +59,13 @@ body {
     margin-top: 10px;
 }
 
-/* Barre de navigation */
+/* Navbar : centrer les onglets */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centre les onglets */
     padding: 10px 0;
     border-top: 1px solid #d8be13; /* Séparation avec la top-bar */
+    background-color: #000000; /* Fond noir */
 }
 
 .nav {
