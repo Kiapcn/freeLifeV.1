@@ -27,11 +27,16 @@ body {
 
 .logo {
     height: 80px;
-    transition: transform 0.3s ease-in-out;
+    animation: rotateLogo 7s linear infinite; /* Animation continue */
 }
 
-.logo:hover {
-    transform: rotate(360deg);
+@keyframes rotateLogo {
+    from {
+        transform: rotate(0deg); /* Départ à 0° */
+    }
+    to {
+        transform: rotate(360deg); /* Fin à 360° */
+    }
 }
 
 .tagline {
@@ -42,12 +47,16 @@ body {
 }
 
 /* Navigation */
+
 .navbar {
     display: flex;
     justify-content: center;
     padding: 10px 0;
     background-color: #000000;
+    margin-bottom: 20px; /* Ajoute un espace de 20px sous les onglets */
+    margin-top: 20px;
 }
+
 
 .nav {
     display: flex;
@@ -132,4 +141,9 @@ footer {
     position: relative; /* S'assure qu'il reste en bas du contenu */
     width: 100%; /* S'étend sur toute la largeur */
     font-size: 1rem; /* Taille du texte */
+}
+p {
+    text-align: left;
+    color: #000000;
+    line-height: 1.6;
 }

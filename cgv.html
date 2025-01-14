@@ -4,40 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Scan Médical</title>
-    <!-- Intégration de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Intégration de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
+    <header class="header">
+        <!-- Bloc contenant le logo et la phrase d'accroche -->
         <div class="top-bar">
-            <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+            <a href="index.html">
+                <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
+            </a>
+            <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes !"</p>
         </div>
-        <nav class="navbar fixed-top navbar-light bg-white shadow-sm">
-            <div class="container justify-content-center">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="scan.html">Scan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
-                </ul>
-            </div>
+        <!-- Barre de navigation -->
+        <nav class="navbar">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="scan.html">Scan</a></li>
+                <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
+            </ul>
         </nav>
     </header>
-    <main class="container mt-5 pt-5">
+    <main>
         <section>
-            <h1>Bienvenue sur Scan Médical</h1>
-            <p>Une innovation révolutionnaire pour un diagnostic rapide et ludique.</p>
-            <!-- Bloc noir centré -->
-            <div class="black-box"></div>
+            <h1>CGV</h1>
+            <br />
+            <p> <br />Article 1 : Objet
+                Les présentes CGV définissent les droits et obligations des parties dans le cadre de la vente en ligne des produits proposés par le Vendeur sur son site internet.
+                <br />
+                Article 2 : Produits
+                Les produits proposés à la vente sont décrits et présentés avec la plus grande exactitude possible. Les photographies des produits sont fournies à titre indicatif et ne sont pas contractuelles.
+                <br />
+                Article 3 : Prix
+                Tous les prix indiqués sur le site sont exprimés en euros (€), toutes taxes comprises (TTC), hors frais de livraison.
+                Le Vendeur se réserve le droit de modifier ses prix à tout moment, mais s’engage à appliquer les tarifs en vigueur indiqués au moment de la commande.
+                <br />
+                Article 4 : Commandes
+                Pour passer commande, le Client doit suivre les étapes suivantes :
+                <br />
+                Sélectionner les produits et les ajouter au panier.
+                Valider le panier et accepter les présentes CGV.
+                Fournir les informations de livraison et de paiement.
+                Valider définitivement la commande.
+                Le Vendeur se réserve le droit de refuser ou d'annuler toute commande en cas de litige ou de non-paiement total ou partiel d’une commande précédente.
+                <br />
+                Article 5 : Paiement
+                Le paiement s’effectue en ligne via les moyens suivants :
+                <br />
+                Carte bancaire (Visa, Mastercard, etc.)
+                PayPal
+                Tout autre moyen proposé sur le site.
+                La commande ne sera expédiée qu’après réception intégrale du paiement.
+                <br />
+                Article 6 : Livraison
+                Les produits sont livrés à l’adresse indiquée par le Client lors de la commande.
+                Le délai de livraison est indicatif et dépend du transporteur. En cas de retard, le Vendeur s’efforcera de tenir le Client informé.
+                <br />
+                Frais de livraison : Les frais sont précisés lors de la validation de la commande.
+                <br />
+                Article 7 : Droit de rétractation
+                Conformément aux dispositions légales en vigueur, le Client dispose d’un délai de 14 jours à compter de la réception de la commande pour exercer son droit de rétractation.
+                <br />
+                Pour ce faire, le Client doit notifier le Vendeur par e-mail à contact@scanmedical.com ou via le formulaire de rétractation disponible sur le site.
+                <br />
+                Les frais de retour sont à la charge du Client, sauf en cas de produit défectueux ou non conforme.
+                <br />
+                Article 8 : Garanties
+                Tous les produits vendus bénéficient des garanties légales de conformité et des vices cachés, conformément aux articles 1641 et suivants du Code civil.
+                <br />
+                En cas de problème, le Client doit contacter le service client à support@scanmedical.com.
+                <br />
+                Article 9 : Responsabilité
+                Le Vendeur ne saurait être tenu pour responsable des dommages indirects qui pourraient survenir du fait de l’achat des produits.
+                <br />
+                La responsabilité du Vendeur est limitée au montant de la commande.
+                <br />
+                Article 10 : Données personnelles
+                Les informations recueillies lors de la commande sont nécessaires pour le traitement et l’expédition des produits.
+                <br />
+                Conformément au Règlement Général sur la Protection des Données (RGPD), le Client dispose d’un droit d’accès, de rectification, et de suppression de ses données personnelles. Pour exercer ce droit, le Client peut contacter le DPO à dpo@scanmedical.com.
+                <br />
+                Article 11 : Litiges
+                En cas de litige, les parties s’efforceront de trouver une solution amiable. À défaut, le litige sera soumis à la juridiction compétente conformément à la législation en vigueur.
+                <br />
+                Article 12 : Modification des CGV
+                Le Vendeur se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur au moment de la commande.
+                <br />
+                Article 13 : Contact
+                Pour toute question ou réclamation, le Client peut contacter le service client :
+                <br />
+                Adresse e-mail : contact@scanmedical.com
+                Téléphone : +33 1 23 45 67 89</p>
         </section>
     </main>
-    <footer class="bg-light text-center py-3 mt-5">
+    <footer>
         <p>&copy; 2025 Scan Médical - Tous droits réservés.</p>
     </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
