@@ -50,6 +50,32 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraContainer.style.backgroundColor =
                 cameraContainer.style.backgroundColor === "white" ? "black" : "white";
         }, 100);
+// Effet de flash pour le scan
+scanButton.addEventListener("click", () => {
+    scanButton.disabled = true;
+    countdown.classList.remove("hidden");
+    let timeLeft = 7;
+    countdown.textContent = timeLeft;
+
+    // Effet de flash pour simuler l'effet de diagnostic
+    const flashInterval = setInterval(() => {
+        cameraContainer.style.backgroundColor =
+            cameraContainer.style.backgroundColor === "white" ? "black" : "white";
+    }, 100);
+
+    const countdownInterval = setInterval(() => {
+        timeLeft -= 1;
+        countdown.textContent = timeLeft;
+
+        if (timeLeft === 0) {
+            clearInterval(countdownInterval);
+            clearInterval(flashInterval);
+            cameraContainer.style.backgroundColor = "black"; // Réinitialise le fond noir
+            countdown.classList.add("hidden");
+            scanButton.disabled = false; // Réactive le bouton Scan après 7 secondes
+        }
+    }, 1000);
+});
 
         // Compte à rebours pour le scan
         const countdownInterval = setInterval(() => {

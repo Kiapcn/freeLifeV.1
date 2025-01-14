@@ -297,3 +297,34 @@ footer {
     margin: 0 auto; /* Centré horizontalement */
     display: block; /* Assure que le logo est un bloc */
 }
+/* Réduction de la taille de la caméra sur mobile */
+@media (max-width: 768px) {
+    .camera-container {
+        width: 100%; /* La caméra occupe la largeur de l'écran */
+        height: auto; /* Ajuste la hauteur automatiquement */
+        max-height: 300px; /* Limite la hauteur pour plus de lisibilité */
+        position: relative; /* Permet de positionner le bouton au centre */
+        margin: 10px auto; /* Centré horizontalement */
+    }
+
+    #camera-feed {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Remplit la caméra */
+    }
+
+    #scan-button {
+        position: absolute; /* Place le bouton au centre de la caméra */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10; /* Affiche le bouton au-dessus de la caméra */
+        background-color: #d8be13; /* Bouton visible sur fond noir */
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
