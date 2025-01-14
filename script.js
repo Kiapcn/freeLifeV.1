@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const countdown = document.getElementById("countdown");
     const randomMessage = document.getElementById("random-message");
     const formSection = document.getElementById("form-section");
-    const profileForm = document.getElementById("profile-form");
 
+    // Liste des messages aléatoires
     const messages = [
         "Merci d’avoir utilisé notre service ! Votre diagnostic est parfait : tout va pour le mieux pour vous.",
         "Félicitations, votre diagnostic est idéal. Profitez de votre excellente santé !",
@@ -18,35 +18,40 @@ document.addEventListener("DOMContentLoaded", () => {
         "Super nouvelle : votre diagnostic est parfait. Restez en pleine forme !",
         "Vous êtes en parfaite santé. Continuez comme ça, et merci d’utiliser nos services.",
         "Tout va pour le mieux dans votre diagnostic. Merci de nous avoir choisis.",
-        "Merci d’avoir utilisé Scan Médical. Votre santé est au top !",
+        "Merci d’avoir utilisé FreeLife. Votre santé est au top !",
     ];
 
+    // Chargement du son pour le scan
     const audio = new Audio("scan-sound.mp3");
 
+    // Activer la caméra
     startScanButton.addEventListener("click", async () => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             cameraFeed.srcObject = stream;
             cameraFeed.play();
             cameraContainer.classList.remove("hidden");
-            scanButton.classList.remove("hidden");
+            scanButton.style.display = "block"; // Affiche le bouton Scan
         } catch (error) {
-            alert("Impossible d'accéder à la caméra.");
+            alert("Impossible d'accéder à la caméra. Veuillez vérifier les autorisations.");
         }
     });
 
+    // Gestion du scan
     scanButton.addEventListener("click", () => {
-        scanButton.disabled = true; // Désactive temporairement le bouton Scan
-        randomMessage.classList.add("hidden"); // Cache le message précédent
+        audio.play(); // Joue le son pendant le scan
+        scanButton.style.display = "none"; // Cache le bouton Scan
         countdown.classList.remove("hidden");
-        let timeLeft = 7;
+        let timeLeft = 7; // Temps de compte à rebours
         countdown.textContent = timeLeft;
 
+        // Effet de flash rapide
         const flashInterval = setInterval(() => {
             cameraContainer.style.backgroundColor =
                 cameraContainer.style.backgroundColor === "white" ? "black" : "white";
         }, 100);
 
+        // Compte à rebours pour le scan
         const countdownInterval = setInterval(() => {
             timeLeft--;
             countdown.textContent = timeLeft;
@@ -54,55 +59,30 @@ document.addEventListener("DOMContentLoaded", () => {
             if (timeLeft === 0) {
                 clearInterval(countdownInterval);
                 clearInterval(flashInterval);
-                cameraContainer.style.backgroundColor = "black";
+                cameraContainer.style.backgroundColor = "black"; // Réinitialise le fond
                 countdown.classList.add("hidden");
 
+                // Affiche un message aléatoire
                 const random = messages[Math.floor(Math.random() * messages.length)];
                 randomMessage.textContent = random;
                 randomMessage.classList.remove("hidden");
+
+                // Affiche le formulaire après le scan
                 formSection.classList.remove("hidden");
 
-                scanButton.disabled = false; // Réactive le bouton Scan pour un nouveau scan
+                // Réaffiche le bouton Scan après 10 secondes
+                setTimeout(() => {
+                    scanButton.style.display = "block";
+                }, 10000);
             }
         }, 1000);
-
-        audio.play(); // Joue le son pendant le scan
     });
 
+    // Validation du formulaire
+    const profileForm = document.getElementById("profile-form");
     profileForm.addEventListener("submit", (e) => {
         e.preventDefault();
         alert("Vous êtes bien inscrit à notre liste d’attente. Merci !");
-        formSection.classList.add("hidden");
+        formSection.classList.add("hidden"); // Cache le formulaire après validation
     });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const cart = [];
-
-    // Sélectionne les boutons "Ajouter au panier"
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");
-
-    // Conteneur pour afficher les produits dans panier.html
-    const cartItemsContainer = document.getElementById("cart-items");
-
-    // Gestion des clics sur "Ajouter au panier"
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const productName = button.getAttribute("data-product");
-            cart.push(productName);
-            alert(`${productName} a été ajouté à votre panier.`);
-            updateCart();
-        });
-    });
-
-    // Mise à jour de la liste des produits dans panier.html
-    const updateCart = () => {
-        if (cartItemsContainer) {
-            cartItemsContainer.innerHTML = ""; // Réinitialise le contenu
-            cart.forEach(item => {
-                const cartItem = document.createElement("p");
-                cartItem.textContent = item;
-                cartItemsContainer.appendChild(cartItem);
-            });
-        }
-    };
 });
