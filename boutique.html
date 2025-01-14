@@ -3,40 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Scan Médical</title>
-    <!-- Intégration de Google Fonts -->
+    <title>Boutique - Scan Médical</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="header">
-        <!-- Bloc contenant le logo et la phrase d'accroche -->
         <div class="top-bar">
             <a href="index.html">
                 <img src="logo1-removebg-preview.png" alt="Logo Scan Médical" class="logo">
             </a>
             <p class="tagline">"Le diagnostic révolutionnaire, partout où vous êtes !"</p>
         </div>
-        <!-- Barre de navigation -->
         <nav class="navbar">
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link" href="scan.html">Scan</a></li>
-                <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
+                <li class="nav-item"><a class="nav-link active" href="boutique.html">Boutique</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
+                <li class="nav-item"><a class="nav-link" href="panier.html">🛒 Panier</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Bienvenue sur Scan Médical</h1>
-            <p>Une innovation révolutionnaire pour un diagnostic rapide et ludique.</p>
+            <h1>Notre Boutique</h1>
+            <div class="product">
+                <img src="product1.jpg" alt="Produit 1" class="product-image">
+                <div class="product-details">
+                    <h2>Produit 1</h2>
+                    <p>Description du produit 1. C'est un produit incroyable qui change votre vie.</p>
+                    <button class="add-to-cart" data-product="Produit 1">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Produit 2" class="product-image">
+                <div class="product-details">
+                    <h2>Produit 2</h2>
+                    <p>Description du produit 2. Ce produit est indispensable à votre quotidien.</p>
+                    <button class="add-to-cart" data-product="Produit 2">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Produit 3" class="product-image">
+                <div class="product-details">
+                    <h2>Produit 3</h2>
+                    <p>Description du produit 3. Découvrez une révolution avec ce produit.</p>
+                    <button class="add-to-cart" data-product="Produit 3">Ajouter au panier</button>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Scan Médical - Tous droits réservés.</p>
-    </footer>
-</body>
-</html>

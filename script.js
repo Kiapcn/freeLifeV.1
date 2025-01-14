@@ -75,3 +75,34 @@ document.addEventListener("DOMContentLoaded", () => {
         formSection.classList.add("hidden");
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const cart = [];
+
+    // Sélectionne les boutons "Ajouter au panier"
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+    // Conteneur pour afficher les produits dans panier.html
+    const cartItemsContainer = document.getElementById("cart-items");
+
+    // Gestion des clics sur "Ajouter au panier"
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const productName = button.getAttribute("data-product");
+            cart.push(productName);
+            alert(`${productName} a été ajouté à votre panier.`);
+            updateCart();
+        });
+    });
+
+    // Mise à jour de la liste des produits dans panier.html
+    const updateCart = () => {
+        if (cartItemsContainer) {
+            cartItemsContainer.innerHTML = ""; // Réinitialise le contenu
+            cart.forEach(item => {
+                const cartItem = document.createElement("p");
+                cartItem.textContent = item;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+    };
+});
