@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const countdown = document.getElementById("countdown");
     const randomMessage = document.getElementById("random-message");
     const formSection = document.getElementById("form-section");
+    const scanEffect = document.getElementById("scan-effect"); // Ligne rouge animée
 
     // Liste des messages aléatoires
     const messages = [
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraFeed.srcObject = stream;
             cameraFeed.play();
             cameraContainer.classList.remove("hidden");
-            scanButton.classList.remove("hidden");
+            scanButton.style.display = "block"; // Affiche le bouton Scan
         } catch (error) {
             alert("Impossible d'accéder à la caméra. Veuillez vérifier les autorisations.");
         }
@@ -39,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Gestion du scan
     scanButton.addEventListener("click", () => {
-        audio.play();
-        scanButton.classList.add("hidden");
+        audio.play(); // Joue le son pendant le scan
+        scanButton.style.display = "none"; // Cache le bouton Scan
         countdown.classList.remove("hidden");
-        randomMessage.classList.add("hidden");
-        let timeLeft = 7;
+        scanEffect.classList.add("active"); // Active la ligne rouge
+        let timeLeft = 7; // Temps de compte à rebours
         countdown.textContent = timeLeft;
 
         // Effet de flash rapide
@@ -60,8 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (timeLeft === 0) {
                 clearInterval(countdownInterval);
                 clearInterval(flashInterval);
-                cameraContainer.style.backgroundColor = "black";
+                cameraContainer.style.backgroundColor = "black"; // Réinitialise le fond
                 countdown.classList.add("hidden");
+                scanEffect.classList.remove("active"); // Désactive la ligne rouge
 
                 // Affiche un message aléatoire
                 const random = messages[Math.floor(Math.random() * messages.length)];
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Réaffiche le bouton Scan après 10 secondes
                 setTimeout(() => {
-                    scanButton.classList.remove("hidden");
+                    scanButton.style.display = "block";
                 }, 10000);
             }
         }, 1000);
@@ -84,6 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     profileForm.addEventListener("submit", (e) => {
         e.preventDefault();
         alert("Vous êtes bien inscrit à notre liste d’attente. Merci !");
-        formSection.classList.add("hidden");
+        formSection.classList.add("hidden"); // Cache le formulaire après validation
     });
 });

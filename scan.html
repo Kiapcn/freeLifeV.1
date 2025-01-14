@@ -33,6 +33,7 @@
             <h1>Scanner votre diagnostic</h1>
             <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
+                <div id="scan-effect"></div> <!-- Ligne rouge animée -->
                 <div id="camera-wrapper">
                     <video id="camera-feed" autoplay></video>
                     <button id="scan-button" class="btn-scan hidden">Scan</button>
@@ -40,6 +41,7 @@
                 <p id="countdown" class="hidden">7</p>
                 <p id="random-message" class="hidden"></p>
             </div>
+            
         </section>
         <section id="form-section" class="hidden">
             <h2>Créer votre profil</h2>
