@@ -15,7 +15,7 @@ body {
 
 /* Bloc supérieur (logo + phrase d'accroche + onglets) */
 .header {
-    position: fixed;
+    position: sticky; /* Fixe le header */
     top: 0;
     left: 0;
     width: 100%;
@@ -24,6 +24,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre discrète */
     display: grid;
     grid-template-rows: auto auto; /* Ajuste automatiquement la hauteur */
+    
 }
 
 /* Top-bar : logo et phrase d'accroche */
@@ -87,9 +88,9 @@ body {
 /* Contenu principal */
 main {
     padding: 20px;
-    margin-top: calc(80px + 10px + 50px); /* Ajuste pour inclure la hauteur totale du header */
+    margin-top: calc(80px + 10px + 50px); /* Ajuste la hauteur totale */
     text-align: center;
-    color: #d8be13; /* Texte en or */
+    color: #000000; /* Texte noir */
 }
 
 

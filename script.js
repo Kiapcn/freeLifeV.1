@@ -64,13 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
     const main = document.querySelector("main");
 
-    // Calcul automatique de la hauteur du header
     const adjustMainMargin = () => {
         const headerHeight = header.offsetHeight; // Hauteur totale du header
         main.style.marginTop = `${headerHeight}px`; // Applique la marge équivalente
     };
 
-    // Ajuste la marge au chargement et au redimensionnement de l'écran
-    adjustMainMargin();
-    window.addEventListener("resize", adjustMainMargin);
+    adjustMainMargin(); // Appel initial au chargement
+    window.addEventListener("resize", adjustMainMargin); // Recalcule lors du redimensionnement
 });
+
