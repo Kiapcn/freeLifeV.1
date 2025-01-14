@@ -280,3 +280,20 @@ footer {
         font-size: 1.2rem; /* Ajuste la taille de l'icône Panier */
     }
 }
+/* Animation de rotation du logo */
+@keyframes rotateLogo {
+    from {
+        transform: rotate(0deg); /* Début à 0° */
+    }
+    to {
+        transform: rotate(360deg); /* Fin à 360° */
+    }
+}
+
+/* Appliquer l'animation à toutes les pages */
+.logo {
+    animation: rotateLogo 7s linear infinite; /* 1 rotation en 7 secondes */
+    height: 80px; /* Ajustez si nécessaire */
+    margin: 0 auto; /* Centré horizontalement */
+    display: block; /* Assure que le logo est un bloc */
+}
