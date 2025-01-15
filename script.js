@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let isFaceDetected = false;
     let stream;
 
-    // Fonction pour activer/désactiver la lampe torche
     async function toggleFlash(state) {
         if (stream) {
             const [track] = stream.getVideoTracks();
@@ -27,24 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Fonction pour clignoter le flash pendant le scan
     function startFlashEffect() {
         let isOn = false;
         const flashInterval = setInterval(() => {
             isOn = !isOn;
             toggleFlash(isOn);
-        }, 500); // Clignotement deux fois par seconde
+        }, 500);
 
         setTimeout(() => {
             clearInterval(flashInterval);
-            toggleFlash(false); // Désactiver le flash après 7 secondes
+            toggleFlash(false);
         }, 7000);
     }
 
-    // Activation de la caméra
     startScanButton.addEventListener("click", async () => {
         try {
-            // Arrêter les flux existants avant de démarrer un nouveau
             if (stream) {
                 const tracks = stream.getTracks();
                 tracks.forEach((track) => track.stop());
@@ -55,48 +51,40 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             cameraFeed.srcObject = stream;
 
-            cameraFeed.style.width = "100%";
-            cameraFeed.style.height = "auto";
-            cameraFeed.style.objectFit = "cover";
-
             await cameraFeed.play();
 
             cameraContainer.classList.remove("hidden");
             scanButton.classList.add("hidden");
             successMessageContainer.classList.add("hidden");
 
-            faceGuide.classList.remove("hidden"); // Affiche le cercle
+            faceGuide.classList.remove("hidden");
             isFaceDetected = false;
-            detectFace(); // Simuler la détection du visage
+            detectFace();
         } catch (error) {
             console.error("Erreur d'accès à la caméra :", error);
             alert("Impossible d'accéder à la caméra. Veuillez vérifier vos permissions.");
         }
     });
 
-    // Fonction de détection simulée (projet réel nécessiterait une bibliothèque comme FaceAPI)
     function detectFace() {
         const detectionInterval = setInterval(() => {
             if (!isFaceDetected) {
-                const randomDetect = Math.random() > 0.95; // Simule une détection de visage
+                const randomDetect = Math.random() > 0.95;
                 if (randomDetect) {
                     isFaceDetected = true;
                     clearInterval(detectionInterval);
-                    faceGuide.style.borderColor = "green"; // Indiquer la détection
+                    faceGuide.style.borderColor = "green";
 
-                    // Retire le cercle après 2 secondes
                     setTimeout(() => {
                         faceGuide.classList.add("hidden");
                     }, 2000);
 
-                    cameraFeed.pause();
                     scanButton.classList.remove("hidden");
                 }
             }
         }, 500);
     }
 
-    // Lancement du scan
     scanButton.addEventListener("click", () => {
         if (!countdown || !cameraFeed || !successMessageContainer) {
             console.error("Un ou plusieurs éléments requis sont manquants dans le DOM.");
@@ -108,11 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let timeLeft = 7;
         countdown.textContent = timeLeft;
 
-        // Démarrer le flash et le son
         startFlashEffect();
         scanSound.play().catch((error) => console.error("Erreur lors de la lecture du son :", error));
 
-        // Compte à rebours
         const interval = setInterval(() => {
             timeLeft--;
             countdown.textContent = timeLeft;
@@ -120,12 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (timeLeft === 0) {
                 clearInterval(interval);
 
-                // Capture une image figée
                 canvas.width = cameraFeed.videoWidth;
                 canvas.height = cameraFeed.videoHeight;
                 ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
 
-                cameraFeed.srcObject = null; // Arrêter le flux vidéo
+                cameraFeed.srcObject = null;
                 cameraFeed.style.background = `url(${canvas.toDataURL("image/png")}) no-repeat center`;
                 cameraFeed.style.backgroundSize = "cover";
 
