@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cameraFeed.srcObject = stream;
             cameraFeed.play();
             cameraContainer.classList.remove("hidden");
+            cameraContainer.style.display = "block"; // Assurez-vous qu'il soit visible
             scanButton.classList.remove("hidden");
         } catch (error) {
             alert("Impossible d'accéder à la caméra.");
