@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Sélection des éléments DOM
     const startScanButton = document.getElementById("start-scan-button");
     const cameraContainer = document.getElementById("camera-container");
     const cameraFeed = document.getElementById("camera-feed");
     const scanButton = document.getElementById("scan-button");
     const countdown = document.getElementById("countdown");
-    const randomMessage = document.getElementById("random-message");
     const successMessageContainer = document.getElementById("success-message-container");
 
-    // Messages aléatoires
+    // Messages aléatoires pour le diagnostic
     const messages = [
         "Merci d’avoir utilisé notre service ! Votre diagnostic est parfait.",
         "Félicitations, votre diagnostic est idéal.",
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Activation de la caméra
     startScanButton.addEventListener("click", async () => {
         try {
             // Arrêter les flux existants avant de démarrer un nouveau
@@ -55,8 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Lancement du scan
     scanButton.addEventListener("click", () => {
-        if (!countdown || !cameraFeed || !randomMessage || !successMessageContainer) {
+        if (!countdown || !cameraFeed || !successMessageContainer) {
             console.error("Un ou plusieurs éléments requis sont manquants dans le DOM.");
             return;
         }
@@ -85,9 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cameraFeed.pause();
 
                 countdown.classList.add("hidden");
-                const random = messages[Math.floor(Math.random() * messages.length)];
-                randomMessage.textContent = random;
-                randomMessage.classList.remove("hidden");
+                successMessageContainer.classList.remove("hidden");
             }
         }, 1000);
     });
