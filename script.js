@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const randomDetect = Math.random() > 0.95;
                 if (randomDetect) {
                     isFaceDetected = true;
-                    clearInterval(detectionInterval);
                     faceGuide.style.borderColor = "green";
 
                     setTimeout(() => {
                         faceGuide.classList.add("hidden");
+                        scanButton.classList.remove("hidden"); // Affiche le bouton Scan après détection
                     }, 2000);
 
-                    scanButton.classList.remove("hidden");
+                    clearInterval(detectionInterval);
                 }
             }
         }, 500);
