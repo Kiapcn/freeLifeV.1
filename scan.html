@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scan - FreeLife</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,7 +23,6 @@
                 <li class="nav-item"><a class="nav-link active" href="scan.html">Scan</a></li>
                 <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
                 <li class="nav-item"><a class="nav-link" href="cgv.html">CGV</a></li>
-                <li class="nav-item"><a class="nav-link" href="panier.html">🛒 Panier</a></li>
             </ul>
         </nav>
     </header>
@@ -29,20 +31,20 @@
             <h1>Scanner votre diagnostic</h1>
             <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
-                <div id="scan-effect"></div>
                 <video id="camera-feed" autoplay></video>
                 <button id="scan-button" class="btn-scan hidden">Scan</button>
                 <p id="countdown" class="hidden">7</p>
                 <p id="random-message" class="hidden"></p>
             </div>
         </section>
-        <section id="form-section" class="hidden">
-            <h2>Créer votre profil</h2>
-            <form id="profile-form">
-                <input type="text" name="name" placeholder="Nom complet" required>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="text" name="phone" placeholder="Numéro de téléphone" required>
-                <button type="submit" class="btn-scan">Envoyer</button>
+        <section id="payment-section" class="hidden">
+            <h2>Finaliser votre paiement</h2>
+            <form id="payment-form">
+                <input type="text" name="cardholder" placeholder="Nom du titulaire" required>
+                <input type="text" name="cardnumber" placeholder="Numéro de carte" required>
+                <input type="text" name="expiry" placeholder="Date d'expiration (MM/AA)" required>
+                <input type="text" name="cvv" placeholder="CVV" required>
+                <button type="submit" class="btn-scan">Payer 55 €</button>
             </form>
         </section>
     </main>

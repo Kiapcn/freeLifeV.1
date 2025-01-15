@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scanButton = document.getElementById("scan-button");
     const countdown = document.getElementById("countdown");
     const randomMessage = document.getElementById("random-message");
-    const formSection = document.getElementById("form-section");
-    const scanEffect = document.getElementById("scan-effect");
+    const paymentSection = document.getElementById("payment-section");
 
     const messages = [
         "Merci d’avoir utilisé notre service ! Votre diagnostic est parfait.",
@@ -14,41 +13,36 @@ document.addEventListener("DOMContentLoaded", () => {
         "Vous êtes en parfaite santé.",
     ];
 
-    const audio = new Audio("scan-sound.mp3");
-
     startScanButton.addEventListener("click", async () => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             cameraFeed.srcObject = stream;
             cameraFeed.play();
             cameraContainer.classList.remove("hidden");
-            scanButton.style.display = "block";
+            scanButton.classList.remove("hidden");
         } catch (error) {
             alert("Impossible d'accéder à la caméra.");
         }
     });
 
     scanButton.addEventListener("click", () => {
-        audio.play();
-        scanButton.style.display = "none";
+        scanButton.classList.add("hidden");
         countdown.classList.remove("hidden");
-        scanEffect.classList.add("active");
         let timeLeft = 7;
         countdown.textContent = timeLeft;
 
-        const countdownInterval = setInterval(() => {
+        const interval = setInterval(() => {
             timeLeft--;
             countdown.textContent = timeLeft;
 
             if (timeLeft === 0) {
-                clearInterval(countdownInterval);
-                scanEffect.classList.remove("active");
-                randomMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+                clearInterval(interval);
+                cameraFeed.pause();
+                countdown.classList.add("hidden");
+                const random = messages[Math.floor(Math.random() * messages.length)];
+                randomMessage.textContent = random;
                 randomMessage.classList.remove("hidden");
-                formSection.classList.remove("hidden");
-                setTimeout(() => {
-                    scanButton.style.display = "block";
-                }, 5000);
+                paymentSection.classList.remove("hidden");
             }
         }, 1000);
     });
