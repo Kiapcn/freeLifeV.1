@@ -14,33 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let isFaceDetected = false;
     let stream;
 
-    // Fonction pour activer/désactiver la lampe torche
-    async function toggleFlash(state) {
-        if (stream) {
-            const [track] = stream.getVideoTracks();
-            if (track.getCapabilities().torch) {
-                const settings = { advanced: [{ torch: state }] };
-                track.applyConstraints(settings).catch((error) => {
-                    console.error("Erreur avec la torche :", error);
-                });
-            }
-        }
-    }
-
-    // Fonction pour démarrer les flashs
-    function startFlashEffect() {
-        let isOn = false;
-        const flashInterval = setInterval(() => {
-            isOn = !isOn;
-            toggleFlash(isOn);
-        }, 500);
-
-        setTimeout(() => {
-            clearInterval(flashInterval);
-            toggleFlash(false);
-        }, 7000);
-    }
-
     // Activation de la caméra
     startScanButton.addEventListener("click", async () => {
         try {
@@ -50,18 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             stream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "user" },
+                video: { facingMode: "user" }, // Utiliser la caméra frontale
             });
             cameraFeed.srcObject = stream;
-
             await cameraFeed.play();
 
             cameraContainer.classList.remove("hidden");
-            scanButton.classList.add("hidden");
-            successMessageContainer.classList.add("hidden");
-
             faceGuide.classList.remove("hidden");
+            successMessageContainer.classList.add("hidden");
+            scanButton.classList.add("hidden");
             isFaceDetected = false;
+
             detectFace();
         } catch (error) {
             console.error("Erreur d'accès à la caméra :", error);
@@ -73,24 +45,23 @@ document.addEventListener("DOMContentLoaded", () => {
     function detectFace() {
         const detectionInterval = setInterval(() => {
             if (!isFaceDetected) {
-                const randomDetect = Math.random() > 0.95;
+                const randomDetect = Math.random() > 0.95; // Simule une détection aléatoire
                 if (randomDetect) {
                     isFaceDetected = true;
-                    faceGuide.style.borderColor = "green";
 
-                    // Figer l'image
-                    setTimeout(() => {
-                        canvas.width = cameraFeed.videoWidth;
-                        canvas.height = cameraFeed.videoHeight;
-                        ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
+                    // Capture l'image et fige l'écran
+                    canvas.width = cameraFeed.videoWidth;
+                    canvas.height = cameraFeed.videoHeight;
+                    ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
 
-                        cameraFeed.srcObject = null;
-                        cameraFeed.style.background = `url(${canvas.toDataURL("image/png")}) no-repeat center`;
-                        cameraFeed.style.backgroundSize = "cover";
+                    // Figer l'image sur mobile
+                    cameraFeed.srcObject.getTracks().forEach((track) => track.stop());
+                    cameraFeed.srcObject = null;
+                    cameraFeed.style.background = `url(${canvas.toDataURL("image/png")}) no-repeat center`;
+                    cameraFeed.style.backgroundSize = "cover";
 
-                        faceGuide.classList.add("hidden");
-                        scanButton.classList.remove("hidden");
-                    }, 2000);
+                    faceGuide.classList.add("hidden");
+                    scanButton.classList.remove("hidden");
 
                     clearInterval(detectionInterval);
                 }
@@ -100,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Lancement du scan
     scanButton.addEventListener("click", () => {
-        if (!countdown || !cameraFeed || !successMessageContainer) {
-            console.error("Un ou plusieurs éléments requis sont manquants dans le DOM.");
+        if (!countdown) {
+            console.error("Le décompte est manquant dans le DOM.");
             return;
         }
 
@@ -110,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let timeLeft = 7;
         countdown.textContent = timeLeft;
 
-        startFlashEffect();
+        // Lecture du son et flash simulé
         scanSound.play().catch((error) => console.error("Erreur lors de la lecture du son :", error));
 
         const interval = setInterval(() => {
