@@ -44,7 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 tracks.forEach((track) => track.stop());
             }
 
-            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }); // Utilisation de la caméra arrière si disponible
+            // Demander la caméra avant (selfie)
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: "user" } // Utiliser la caméra avant
+            });
             cameraFeed.srcObject = stream;
 
             // Gestion de la taille pour qu'elle reste dans le conteneur
