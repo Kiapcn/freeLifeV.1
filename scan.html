@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scan - FreeLife</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +28,9 @@
             <h1>Scanner votre diagnostic</h1>
             <button id="start-scan-button" class="btn-scan">Activer la caméra</button>
             <div id="camera-container" class="camera-container hidden">
-                <video id="camera-feed" autoplay></video>
+                <div class="video-wrapper">
+                    <video id="camera-feed" autoplay playsinline></video>
+                </div>
                 <button id="scan-button" class="btn-scan hidden">Scan</button>
                 <p id="countdown" class="hidden">7</p>
                 <div id="success-message-container" class="hidden">

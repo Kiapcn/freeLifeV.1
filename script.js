@@ -44,8 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 tracks.forEach((track) => track.stop());
             }
 
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }); // Utilisation de la caméra arrière si disponible
             cameraFeed.srcObject = stream;
+
+            // Gestion de la taille pour qu'elle reste dans le conteneur
+            cameraFeed.style.width = "100%";
+            cameraFeed.style.height = "auto";
+            cameraFeed.style.objectFit = "cover"; // Ajuster pour rester dans le cadre
+
             await cameraFeed.play(); // Assurez-vous que play() est appelé après avoir défini le flux
 
             cameraContainer.classList.remove("hidden");
@@ -81,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (timeLeft === 0) {
                 clearInterval(interval);
+
                 // Arrêter la caméra après le scan
                 const tracks = cameraFeed.srcObject ? cameraFeed.srcObject.getTracks() : [];
                 tracks.forEach((track) => track.stop());
