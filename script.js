@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scanButton = document.getElementById("scan-button");
     const countdown = document.getElementById("countdown");
     const successMessageContainer = document.getElementById("success-message-container");
+    const faceGuide = document.getElementById("face-guide");
 
     // Messages aléatoires pour le diagnostic
     const messages = [
@@ -16,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Audio setup
     const scanSound = new Audio("scan-sound.mp3");
+
+    let isFaceDetected = false;
 
     // Fonction pour simuler un flash
     function simulateFlash() {
@@ -35,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Activation de la caméra
+    // Activation de la caméra (caméra avant)
     startScanButton.addEventListener("click", async () => {
         try {
             // Arrêter les flux existants avant de démarrer un nouveau
@@ -44,9 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 tracks.forEach((track) => track.stop());
             }
 
-            // Demander la caméra avant (selfie)
             const stream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "user" } // Utiliser la caméra avant
+                video: { facingMode: "user" }, // Utiliser la caméra avant
             });
             cameraFeed.srcObject = stream;
 
@@ -58,14 +60,33 @@ document.addEventListener("DOMContentLoaded", () => {
             await cameraFeed.play(); // Assurez-vous que play() est appelé après avoir défini le flux
 
             cameraContainer.classList.remove("hidden");
-            scanButton.classList.remove("hidden");
+            scanButton.classList.add("hidden"); // Désactiver le bouton Scan au départ
+            faceGuide.classList.remove("hidden"); // Montrer la forme de visage
+            detectFace(); // Lancer la détection du visage
         } catch (error) {
             console.error("Erreur d'accès à la caméra :", error);
             alert("Impossible d'accéder à la caméra. Veuillez vérifier vos permissions ou utiliser un site sécurisé (https).");
         }
     });
 
-    // Lancement du scan
+    // Fonction de détection simulée (projet réel nécessiterait une bibliothèque comme FaceAPI)
+    function detectFace() {
+        const detectionInterval = setInterval(() => {
+            if (!isFaceDetected) {
+                // Simulation d'une détection de visage
+                const randomDetect = Math.random() > 0.95; // 5% de chance de "détecter"
+                if (randomDetect) {
+                    isFaceDetected = true;
+                    clearInterval(detectionInterval);
+                    faceGuide.style.borderColor = "green"; // Changer la couleur pour indiquer la détection
+                    cameraFeed.pause(); // Figer la caméra
+                    scanButton.classList.remove("hidden"); // Activer le bouton Scan
+                }
+            }
+        }, 500); // Vérifier toutes les 500ms
+    }
+
+    // Lancement du scan après détection
     scanButton.addEventListener("click", () => {
         if (!countdown || !cameraFeed || !successMessageContainer) {
             console.error("Un ou plusieurs éléments requis sont manquants dans le DOM.");
@@ -94,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Arrêter la caméra après le scan
                 const tracks = cameraFeed.srcObject ? cameraFeed.srcObject.getTracks() : [];
                 tracks.forEach((track) => track.stop());
-                cameraFeed.pause();
 
                 countdown.classList.add("hidden");
                 successMessageContainer.classList.remove("hidden");

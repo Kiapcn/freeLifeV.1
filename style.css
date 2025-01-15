@@ -301,3 +301,15 @@ body {
     margin-top: 20px;
     text-align: center;
 }
+#face-guide {
+    width: 150px;
+    height: 200px;
+    border: 2px dashed #d8be13; /* Bordure en pointillés */
+    border-radius: 50%; /* Forme ovale */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Pour que l'utilisateur ne puisse pas interagir */
+    z-index: 10; /* Au-dessus de la caméra */
+}
