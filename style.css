@@ -136,13 +136,13 @@ main {
 /* Success message */
 #success-message-container {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .success-message {
     font-size: 1.2rem;
     color: #d8be13;
+    margin-bottom: 20px;
 }
 
 /* Footer */
