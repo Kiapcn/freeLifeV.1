@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             stream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "user" }, // Utiliser la caméra frontale
+                video: { facingMode: "user" },
             });
             cameraFeed.srcObject = stream;
             await cameraFeed.play();
@@ -54,14 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     canvas.height = cameraFeed.videoHeight;
                     ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
 
-                    // Figer l'image sur mobile
                     cameraFeed.srcObject.getTracks().forEach((track) => track.stop());
                     cameraFeed.srcObject = null;
                     cameraFeed.style.background = `url(${canvas.toDataURL("image/png")}) no-repeat center`;
                     cameraFeed.style.backgroundSize = "cover";
 
                     faceGuide.classList.add("hidden");
-                    scanButton.classList.remove("hidden");
+
+                    setTimeout(() => {
+                        scanButton.classList.remove("hidden"); // Affiche le bouton Scan après détection
+                        scanButton.style.position = "absolute";
+                        scanButton.style.bottom = "10px";
+                        scanButton.style.left = "50%";
+                        scanButton.style.transform = "translateX(-50%)";
+                    }, 2000);
 
                     clearInterval(detectionInterval);
                 }
@@ -81,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let timeLeft = 7;
         countdown.textContent = timeLeft;
 
-        // Lecture du son et flash simulé
+        // Lecture du son
         scanSound.play().catch((error) => console.error("Erreur lors de la lecture du son :", error));
 
         const interval = setInterval(() => {
