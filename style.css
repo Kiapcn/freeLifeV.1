@@ -288,6 +288,7 @@ body {
     height: auto;
     object-fit: cover; /* Empêche la déformation et reste dans le cadre */
     border-radius: 10px;
+    background-color: black;
 }
 
 
