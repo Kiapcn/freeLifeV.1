@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const successMessageContainer = document.getElementById("success-message-container");
     const faceGuide = document.getElementById("face-guide");
 
-    // Canvas pour capturer une photo figée
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -64,8 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cameraContainer.classList.remove("hidden");
             scanButton.classList.add("hidden");
-            faceGuide.classList.remove("hidden");
             successMessageContainer.classList.add("hidden");
+
+            faceGuide.classList.remove("hidden"); // Affiche le cercle
             isFaceDetected = false;
             detectFace(); // Simuler la détection du visage
         } catch (error) {
@@ -78,11 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function detectFace() {
         const detectionInterval = setInterval(() => {
             if (!isFaceDetected) {
-                const randomDetect = Math.random() > 0.95;
+                const randomDetect = Math.random() > 0.95; // Simule une détection de visage
                 if (randomDetect) {
                     isFaceDetected = true;
                     clearInterval(detectionInterval);
                     faceGuide.style.borderColor = "green"; // Indiquer la détection
+
+                    // Retire le cercle après 2 secondes
+                    setTimeout(() => {
+                        faceGuide.classList.add("hidden");
+                    }, 2000);
+
                     cameraFeed.pause();
                     scanButton.classList.remove("hidden");
                 }
