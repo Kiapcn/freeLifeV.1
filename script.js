@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isFaceDetected = false;
     let stream;
 
+    // Fonction pour activer/désactiver la lampe torche
     async function toggleFlash(state) {
         if (stream) {
             const [track] = stream.getVideoTracks();
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Fonction pour démarrer les flashs
     function startFlashEffect() {
         let isOn = false;
         const flashInterval = setInterval(() => {
@@ -39,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 7000);
     }
 
+    // Activation de la caméra
     startScanButton.addEventListener("click", async () => {
         try {
             if (stream) {
@@ -66,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Détection de visage simulée
     function detectFace() {
         const detectionInterval = setInterval(() => {
             if (!isFaceDetected) {
@@ -74,9 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     isFaceDetected = true;
                     faceGuide.style.borderColor = "green";
 
+                    // Figer l'image
                     setTimeout(() => {
+                        canvas.width = cameraFeed.videoWidth;
+                        canvas.height = cameraFeed.videoHeight;
+                        ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
+
+                        cameraFeed.srcObject = null;
+                        cameraFeed.style.background = `url(${canvas.toDataURL("image/png")}) no-repeat center`;
+                        cameraFeed.style.backgroundSize = "cover";
+
                         faceGuide.classList.add("hidden");
-                        scanButton.classList.remove("hidden"); // Affiche le bouton Scan après détection
+                        scanButton.classList.remove("hidden");
                     }, 2000);
 
                     clearInterval(detectionInterval);
@@ -85,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
+    // Lancement du scan
     scanButton.addEventListener("click", () => {
         if (!countdown || !cameraFeed || !successMessageContainer) {
             console.error("Un ou plusieurs éléments requis sont manquants dans le DOM.");
@@ -105,15 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (timeLeft === 0) {
                 clearInterval(interval);
-
-                canvas.width = cameraFeed.videoWidth;
-                canvas.height = cameraFeed.videoHeight;
-                ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
-
-                cameraFeed.srcObject = null;
-                cameraFeed.style.background = `url(${canvas.toDataURL("image/png")}) no-repeat center`;
-                cameraFeed.style.backgroundSize = "cover";
-
                 countdown.classList.add("hidden");
                 successMessageContainer.classList.remove("hidden");
             }
