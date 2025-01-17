@@ -102,3 +102,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const colombeLink = document.getElementById("colombe-link");
+    const fogEffect = document.getElementById("fog-effect");
+
+    colombeLink.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+        fogEffect.classList.remove("hidden"); // Affiche la brume
+
+        // Graduellement intensifie la brume sur 7 secondes
+        let opacity = 0; // Démarre avec une transparence nulle
+        const interval = setInterval(() => {
+            opacity += 0.02; // Augmente l'opacité progressivement
+            fogEffect.style.background = `rgba(0, 0, 0, ${opacity})`;
+
+            if (opacity >= 1) {
+                clearInterval(interval); // Arrête l'animation une fois l'opacité à 1
+                // Redirige après que la brume ait atteint 100%
+                window.location.href = "https://maison-7mz838icv-enkichino-gmailcom.vercel.app/";
+            }
+        }, 140); // Exécuté toutes les 140ms sur 7 secondes (140ms * ~50 itérations = 7s)
+    });
+});
